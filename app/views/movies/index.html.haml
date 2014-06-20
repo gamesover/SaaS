@@ -1,5 +1,5 @@
 -#  This file is app/views/movies/index.html.haml
-%h1 All Movies
+%h1 All Products
 
 = form_tag movies_path, :id=>"ratings_form", :method => :get do
   Include:
@@ -34,3 +34,6 @@
 = form_tag import_movies_path, multipart: true do
   = file_field_tag :file
   = submit_tag "Import CSV"
+
+%p
+= link_to "Homepage", "/"

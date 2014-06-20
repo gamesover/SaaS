@@ -18,28 +18,13 @@
 #      	  {:title => 'Chicken Run', :rating => 'G', :release_date => '21-Jun-2000'},
 #  	 ]
 #
-#movies.each do |movie|
-#  Movie.create!(movie)
-#end
 
-#products = []
-#
-#require 'csv'    
-#
-#csv_text = File.read('products.csv')
-#csv = CSV.parse(csv_text, :headers => true)
-#csv.each do |row|
-#  products.push({:id => row[0], :category => row[1], :name => row[2], :price => row[3]})
-#end
-#
-#products.each do |product|
-#  Product.create!(product)
-#end
 
-movies = []
+
 
 require 'csv'    
 
+movies = []
 csv_text = File.read('db/products.csv')#
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -47,5 +32,5 @@ csv.each do |row|
 end
 
 movies.each do |movie|
-  Movie.create!(movie)
+  Movie.create(movie)
 end

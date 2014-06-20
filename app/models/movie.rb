@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
 		end
 
 		movies.each do |movie|
-			Movie.create!(movie)
+			Movie.create(movie)
 		end
 	end
 end
