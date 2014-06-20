@@ -1786,3 +1786,2744 @@ NameError (uninitialized constant Movie::CSV):
   Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
   Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
   Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:16:04 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 4.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:16:04 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 23.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:16:04 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:16:04 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:16:04 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:16:04 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:17:39 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x6086f58 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-gljls7>>, "commit"=>"Import CSV"}
+WARNING: Can't mass-assign protected attributes: ProductID, Category, Product Name, Price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36mSQL (15.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 11:47:39 UTC +00:00], ["description", nil], ["p_id", nil], ["rating", nil], ["release_date", nil], ["title", nil], ["updated_at", Fri, 20 Jun 2014 11:47:39 UTC +00:00]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (1.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 94.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:8:in `block in import'
+  app/models/movie.rb:7:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:19:49 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5f0cb20 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1p43sl2>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C41' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 11:49:49 UTC +00:00], ["description", nil], ["p_id", "C41"], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 11:49:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 53.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:21:04 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x552b190 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1ogwfzo>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C341' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 11:51:04 UTC +00:00], ["description", nil], ["p_id", "C341"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 11:51:04 UTC +00:00]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 27.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:25:22 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5f00280 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1u2f8il>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C341' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 25.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:35:15 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5c44b60 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1qxlvra>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:05:16 UTC +00:00], ["description", nil], ["p_id", "C341"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:05:16 UTC +00:00]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:05:16 UTC +00:00], ["description", nil], ["p_id", nil], ["rating", nil], ["release_date", 0], ["title", nil], ["updated_at", Fri, 20 Jun 2014 12:05:16 UTC +00:00]]
+  [1m[35m (9.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 52.0ms (ActiveRecord: 25.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:35:16 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 6.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:35:16 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 26.0ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:35:16 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:16 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:16 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:16 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/21" for 127.0.0.1 at 2014-06-20 21:35:50 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "21"]]
+  Rendered movies/show.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 18.0ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:35:50 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:50 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:50 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:50 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/21" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"21"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "21"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "movies" WHERE "movies"."id" = ?  [["id", 21]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 16.0ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 35.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 24.0ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:53 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/20" for 127.0.0.1 at 2014-06-20 21:35:58 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "20"]]
+  Rendered movies/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 13.0ms (Views: 11.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:35:58 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:58 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:58 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:35:58 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/20" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"20"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "20"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 20]]
+  [1m[35m (13.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 18.0ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 3.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 23.0ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:01 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:36:23 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5f6e6c8 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1j0mkqj>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C341' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:06:23 UTC +00:00], ["description", nil], ["p_id", "C341"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:06:23 UTC +00:00]]
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 43.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:36:52 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 41.0ms (Views: 21.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:36:52 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:52 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:52 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:52 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies/23" for 127.0.0.1 at 2014-06-20 21:36:58 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "23"]]
+  Rendered movies/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 14.0ms (Views: 12.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:58 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:58 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:36:58 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:36:58 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/23" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"23"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "23"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "movies" WHERE "movies"."id" = ?  [["id", 23]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 19.0ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 34.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 24.0ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:02 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:37:28 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x553d718 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1g10mp1>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C341' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:07:28 UTC +00:00], ["description", nil], ["p_id", "C341"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:07:28 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 43.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:37:43 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 26.0ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:37:43 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:43 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:43 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:43 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies/24" for 127.0.0.1 at 2014-06-20 21:37:54 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "24"]]
+  Rendered movies/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 13.0ms (Views: 11.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:37:54 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:54 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:54 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:54 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/24" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"24"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "24"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 24]]
+  [1m[35m (10.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 15.0ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 3.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 23.0ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:37:56 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:38:32 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x553e690 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-1vxmkwe>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C3421' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00], ["description", nil], ["p_id", "C3421"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C321' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00], ["description", nil], ["p_id", "C321"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C31421' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00], ["description", nil], ["p_id", "C31421"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C342221' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00], ["description", nil], ["p_id", "C342221"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:08:32 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 66.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:38:42 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 26.0ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:38:42 +0930
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:38:42 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:38:42 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:38:42 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:40:03 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5db6688 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-abs31t>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (1.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '1' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00], ["description", nil], ["p_id", "1"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00]]
+  [1m[35m (13.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (1.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '2' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00], ["description", nil], ["p_id", "2"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00]]
+  [1m[35m (24.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '3' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00], ["description", nil], ["p_id", "3"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '4' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00], ["description", nil], ["p_id", "4"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:10:04 UTC +00:00]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 88.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:43:13 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (14.0ms)
+Completed 200 OK in 43.0ms (Views: 24.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:13 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:13 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:13 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:13 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 21:43:19 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x61bca98 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-4680-16fdqz5>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:13:19 UTC +00:00], ["description", nil], ["p_id", "1"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:13:19 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:13:19 UTC +00:00], ["description", nil], ["p_id", "2"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:13:19 UTC +00:00]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:13:20 UTC +00:00], ["description", nil], ["p_id", "3"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:13:20 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 12:13:20 UTC +00:00], ["description", nil], ["p_id", "4"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:13:20 UTC +00:00]]
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:13:20 UTC +00:00], ["description", nil], ["p_id", nil], ["rating", nil], ["release_date", 0], ["title", nil], ["updated_at", Fri, 20 Jun 2014 12:13:20 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 76.0ms (ActiveRecord: 57.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:43:20 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 36.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:43:20 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 29.0ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:20 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:20 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:20 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:20 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/36" for 127.0.0.1 at 2014-06-20 21:43:27 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "36"]]
+  Rendered movies/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 13.0ms (Views: 11.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:27 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:27 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:27 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:27 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/36" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"36"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "36"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 36]]
+  [1m[35m (11.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 17.0ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 4.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 29.0ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:30 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies/35" for 127.0.0.1 at 2014-06-20 21:43:33 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "35"]]
+  Rendered movies/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 12.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:33 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:33 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:33 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:33 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/35" for 127.0.0.1 at 2014-06-20 21:43:35 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"35"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "35"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "movies" WHERE "movies"."id" = ?  [["id", 35]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 16.0ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:43:35 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 4.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:43:35 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 30.0ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:36 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:36 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:36 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:36 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/movies/34" for 127.0.0.1 at 2014-06-20 21:43:38 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "34"]]
+  Rendered movies/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 12.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:38 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:38 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:38 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:38 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/movies/34" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"34"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "34"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 34]]
+  [1m[35m (11.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 17.0ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 4.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 28.0ms (Views: 24.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:41 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/33" for 127.0.0.1 at 2014-06-20 21:43:44 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "33"]]
+  Rendered movies/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 14.0ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:44 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:44 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:44 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:44 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/movies/33" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "id"=>"33"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "33"]]
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "movies" WHERE "movies"."id" = ?  [["id", 33]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 15.0ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 5.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 28.0ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 21:43:46 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (1.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "p_id" varchar(255), "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (6.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "p_id" varchar(255), "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (6.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C1' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "C1"], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C2' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "C2"], ["rating", "Cameras"], ["release_date", 2999], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "C3"], ["rating", "Cameras"], ["release_date", 418], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "W1"], ["rating", "WhiteGoods"], ["release_date", 670], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W2' LIMIT 1[0m
+  [1m[35mSQL (28.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "W2"], ["rating", "WhiteGoods"], ["release_date", 99], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "A1"], ["rating", "Audio"], ["release_date", 499], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "A2"], ["rating", "Audio"], ["release_date", 299], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "A3"], ["rating", "Audio"], ["release_date", 329], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT1"], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT2"], ["rating", "Computers and Tablets"], ["release_date", 1899], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT3' LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT3"], ["rating", "Computers and Tablets"], ["release_date", 1399], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT4' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT4"], ["rating", "Computers and Tablets"], ["release_date", 499], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT5' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT5"], ["rating", "Computers and Tablets"], ["release_date", 2999], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT6' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT6"], ["rating", "Computers and Tablets"], ["release_date", 699], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT7' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT7"], ["rating", "Computers and Tablets"], ["release_date", 498], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT8' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT8"], ["rating", "Computers and Tablets"], ["release_date", 399], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (39.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT9' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00], ["description", nil], ["p_id", "CT9"], ["rating", "Computers and Tablets"], ["release_date", 129], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 12:32:42 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:06:53 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (61.0ms)
+Completed 200 OK in 199.0ms (Views: 121.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:06:54 +0930
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:06:54 +0930
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:06:54 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:06:54 +0930
+Served asset /application.js - 304 Not Modified (37ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:07:21 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5da44f0 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-2ucv5t>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '1' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:37:21 UTC +00:00], ["description", nil], ["p_id", "1"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:37:21 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:37:21 UTC +00:00], ["description", nil], ["p_id", "2"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:37:21 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '3' LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:37:21 UTC +00:00], ["description", nil], ["p_id", "3"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:37:21 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '4' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:37:22 UTC +00:00], ["description", nil], ["p_id", "4"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:37:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:37:22 UTC +00:00], ["description", nil], ["p_id", nil], ["rating", nil], ["release_date", 0], ["title", nil], ["updated_at", Fri, 20 Jun 2014 12:37:22 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 174.0ms (ActiveRecord: 66.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 22:07:22 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 4.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:07:22 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 26.0ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:07:22 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:07:22 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:07:22 +0930
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:07:22 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:08:07 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x3970d58 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-1vx3lfq>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '1' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 21.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:08:13 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (14.0ms)
+Completed 200 OK in 28.0ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:08:13 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:08:13 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:08:13 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:08:13 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:08:50 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5f22a68 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-3eoz5m>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '5' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00], ["description", nil], ["p_id", "5"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00]]
+  [1m[36m (39.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '6' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00], ["description", nil], ["p_id", "6"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '7' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00], ["description", nil], ["p_id", "7"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = '8' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00], ["description", nil], ["p_id", "8"], ["rating", "Cameras"], ["release_date", 11993], ["title", "Sony NEX63"], ["updated_at", Fri, 20 Jun 2014 12:38:50 UTC +00:00]]
+  [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 107.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:09:01 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 28.0ms (Views: 24.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:09:01 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:09:02 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:09:02 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:09:02 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:09:23 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x616ad60 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-1qid2sq>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 39.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:13:in `block in import'
+  app/models/movie.rb:12:in `each'
+  app/models/movie.rb:12:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:14:19 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x60a9e48 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-16sus4n>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 21.0ms
+
+NameError (undefined local variable or method `active' for #<Movie:0x60bd780>):
+  app/models/movie.rb:14:in `block in import'
+  app/models/movie.rb:13:in `each'
+  app/models/movie.rb:13:in `import'
+  app/controllers/movies_controller.rb:67:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:32:59 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 43.0ms (Views: 24.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:32:59 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:32:59 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:32:59 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:32:59 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:33:05 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x562d640 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-1v0c4y9>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 11.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:14:in `block in import'
+  app/models/movie.rb:13:in `each'
+  app/models/movie.rb:13:in `import'
+  app/controllers/movies_controller.rb:72:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:33:36 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x56297e8 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-u80001>>, "commit"=>"Import CSV"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 8.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:14:in `block in import'
+  app/models/movie.rb:13:in `each'
+  app/models/movie.rb:13:in `import'
+  app/controllers/movies_controller.rb:72:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:51:33 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (44.0ms)
+Completed 200 OK in 72.0ms (Views: 54.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:51:33 +0930
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:51:33 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:51:33 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:51:33 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:51:37 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5fd8d30 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-44916-c0b72s>>, "commit"=>"Import CSV"}
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Exists (0.0ms)[0m  SELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 10.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:14:in `block in import'
+  app/models/movie.rb:13:in `each'
+  app/models/movie.rb:13:in `import'
+  app/controllers/movies_controller.rb:74:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.0ms)
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (1.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "p_id" varchar(255), "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (12.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C1' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "C1"], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "C2"], ["rating", "Cameras"], ["release_date", 2999], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "C3"], ["rating", "Cameras"], ["release_date", 418], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "W1"], ["rating", "WhiteGoods"], ["release_date", 670], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "W2"], ["rating", "WhiteGoods"], ["release_date", 99], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "A1"], ["rating", "Audio"], ["release_date", 499], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (19.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "A2"], ["rating", "Audio"], ["release_date", 299], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "A3"], ["rating", "Audio"], ["release_date", 329], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT1"], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (25.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT2"], ["rating", "Computers and Tablets"], ["release_date", 1899], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT3"], ["rating", "Computers and Tablets"], ["release_date", 1399], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT4' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT4"], ["rating", "Computers and Tablets"], ["release_date", 499], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (29.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT5' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT5"], ["rating", "Computers and Tablets"], ["release_date", 2999], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT6' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT6"], ["rating", "Computers and Tablets"], ["release_date", 699], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (25.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT7' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT7"], ["rating", "Computers and Tablets"], ["release_date", 498], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT8' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT8"], ["rating", "Computers and Tablets"], ["release_date", 399], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT9' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00], ["description", nil], ["p_id", "CT9"], ["rating", "Computers and Tablets"], ["release_date", 129], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 13:23:12 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:53:38 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (24.0ms)
+Completed 200 OK in 189.0ms (Views: 110.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:53:40 +0930
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:53:40 +0930
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:53:40 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:53:40 +0930
+Served asset /application.js - 304 Not Modified (37ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:53:49 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5a6a080 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-56976-ebzb84>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35mSQL (14.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:23:49 UTC +00:00], ["description", nil], ["p_id", nil], ["rating", nil], ["release_date", 0], ["title", nil], ["updated_at", Fri, 20 Jun 2014 13:23:49 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 108.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:14:in `block in import'
+  app/models/movie.rb:13:in `each'
+  app/models/movie.rb:13:in `import'
+  app/controllers/movies_controller.rb:74:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:55:02 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 24.0ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:55:02 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:55:02 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:55:02 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:55:02 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-20 22:55:05 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5defc58 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140620-56976-1up1loc>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT11' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:25:05 UTC +00:00], ["description", nil], ["p_id", "CT11"], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 13:25:05 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 65.0ms
+
+ActiveRecord::RecordInvalid (Validation failed: P has already been taken):
+  app/models/movie.rb:14:in `block in import'
+  app/models/movie.rb:13:in `each'
+  app/models/movie.rb:13:in `import'
+  app/controllers/movies_controller.rb:74:in `import'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 22:55:13 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 26.0ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 22:55:13 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 22:55:13 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 22:55:13 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 22:55:13 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:00:52 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 49.0ms (Views: 25.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:00:53 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:00:53 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:00:53 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:00:53 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:04:38 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 43.0ms (Views: 22.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:04:38 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:04:38 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:04:38 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:04:38 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "p_id" varchar(255), "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C1' LIMIT 1[0m
+  [1m[35mSQL (36.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00], ["description", nil], ["p_id", "C1"], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C2' LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00], ["description", nil], ["p_id", "C2"], ["rating", "Cameras"], ["release_date", 2999], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00], ["description", nil], ["p_id", "C3"], ["rating", "Cameras"], ["release_date", 418], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00], ["description", nil], ["p_id", "W1"], ["rating", "WhiteGoods"], ["release_date", 670], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00], ["description", nil], ["p_id", "W2"], ["rating", "WhiteGoods"], ["release_date", 99], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 13:36:15 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "A1"], ["rating", "Audio"], ["release_date", 499], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "A2"], ["rating", "Audio"], ["release_date", 299], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "A3"], ["rating", "Audio"], ["release_date", 329], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT1"], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT2"], ["rating", "Computers and Tablets"], ["release_date", 1899], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT3"], ["rating", "Computers and Tablets"], ["release_date", 1399], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT4' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT4"], ["rating", "Computers and Tablets"], ["release_date", 499], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (25.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT5' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT5"], ["rating", "Computers and Tablets"], ["release_date", 2999], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT6' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT6"], ["rating", "Computers and Tablets"], ["release_date", 699], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT7' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT7"], ["rating", "Computers and Tablets"], ["release_date", 498], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT8' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT8"], ["rating", "Computers and Tablets"], ["release_date", 399], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT9' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00], ["description", nil], ["p_id", "CT9"], ["rating", "Computers and Tablets"], ["release_date", 129], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 13:36:16 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:06:39 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (25.0ms)
+Completed 200 OK in 196.0ms (Views: 114.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:06:40 +0930
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:06:40 +0930
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:06:40 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:06:40 +0930
+Served asset /application.js - 304 Not Modified (39ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:11:18 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 39.0ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:11:18 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:11:18 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:11:18 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:11:18 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:16:15 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 40.0ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:16:15 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:16:15 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:16:15 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:16:15 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:18:18 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+Completed 500 Internal Server Error in 19.0ms
+
+NoMethodError (undefined method `paginate' for nil:NilClass):
+  app/controllers/movies_controller.rb:35:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:18:51 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+Completed 500 Internal Server Error in 23.0ms
+
+NoMethodError (undefined method `paginate' for #<Array:0x5cf4cf0>):
+  app/controllers/movies_controller.rb:35:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:20:10 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+Completed 500 Internal Server Error in 22.0ms
+
+NoMethodError (undefined method `paginate' for #<Array:0x5c82f48>):
+  app/controllers/movies_controller.rb:35:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:22:03 +0930
+
+LoadError (cannot load such file -- will_paginate/array):
+  app/controllers/movies_controller.rb:2:in `<class:MoviesController>'
+  app/controllers/movies_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:30:16 +0930
+Connecting to database specified by database.yml
+
+LoadError (cannot load such file -- will_paginate/array):
+  app/controllers/movies_controller.rb:2:in `<class:MoviesController>'
+  app/controllers/movies_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:30:22 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  Rendered movies/index.html.haml within layouts/application (56.0ms)
+Completed 500 Internal Server Error in 62.0ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3: 
+    4: = form_tag movies_path, :id=>"ratings_form", :method => :get do
+    5:   Include:
+    6:   - @all_ratings.each do |rating|
+    7:     = rating
+    8:     = check_box_tag "ratings[#{rating}]", rating, ((@filter_ratings.length == 0) || (@filter_ratings.grep(/^#{rating}$/).length > 0))
+    9:   = submit_tag 'Refresh', :id=>"ratings_submit"
+  app/views/movies/index.html.haml:6:in `block in _app_views_movies_index_html_haml___940838916_49371420'
+  app/views/movies/index.html.haml:4:in `_app_views_movies_index_html_haml___940838916_49371420'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:34:55 +0930
+
+LoadError (cannot load such file -- will_paginate):
+  app/controllers/movies_controller.rb:2:in `<class:MoviesController>'
+  app/controllers/movies_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:35:11 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 156.0ms (Views: 44.0ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:35:12 +0930
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:35:12 +0930
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:35:12 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:35:12 +0930
+Served asset /application.js - 304 Not Modified (38ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:36:25 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (37.0ms)
+Completed 500 Internal Server Error in 47.0ms
+
+ActionView::Template::Error (undefined method `will_paginate' for #<#<Class:0x5a27bd0>:0x59f1840>):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: 
+    28: = will_paginate @movies
+    29: = link_to 'Add new movie', new_movie_path
+    30: 
+    31: 
+  app/views/movies/index.html.haml:28:in `_app_views_movies_index_html_haml___940838916_47173884'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:38:31 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (29.0ms)
+Completed 500 Internal Server Error in 38.0ms
+
+ActionView::Template::Error (undefined method `will_paginate' for #<#<Class:0x5a27bd0>:0x58c8018>):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: 
+    28: = will_paginate @movies
+    29: = link_to 'Add new movie', new_movie_path
+    30: 
+    31: 
+  app/views/movies/index.html.haml:28:in `_app_views_movies_index_html_haml___940838916_47173884'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:40:11 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (59.0ms)
+Completed 500 Internal Server Error in 67.0ms
+
+ActionView::Template::Error (undefined method `will_paginate' for #<#<Class:0x5a27bd0>:0x58c8dc8>):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: 
+    28: = will_paginate @movies
+    29: = link_to 'Add new movie', new_movie_path
+    30: 
+    31: 
+  app/views/movies/index.html.haml:28:in `_app_views_movies_index_html_haml___940838916_47173884'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:43:43 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (19.0ms)
+Completed 200 OK in 32.0ms (Views: 28.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:43:43 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:43:43 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:43:43 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:43:43 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:45:26 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 40.0ms (Views: 22.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:45:26 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:45:26 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:45:26 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:45:26 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:48:10 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+Completed 500 Internal Server Error in 35.0ms
+
+NoMethodError (undefined method `paginate' for #<Array:0x5761f98>):
+  app/controllers/movies_controller.rb:35:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:49:01 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (52.0ms)
+Completed 500 Internal Server Error in 77.0ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3: 
+    4: = form_tag movies_path, :id=>"ratings_form", :method => :get do
+    5:   Include:
+    6:   - @all_ratings.each do |rating|
+    7:     = rating
+    8:     = check_box_tag "ratings[#{rating}]", rating, ((@filter_ratings.length == 0) || (@filter_ratings.grep(/^#{rating}$/).length > 0))
+    9:   = submit_tag 'Refresh', :id=>"ratings_submit"
+  app/views/movies/index.html.haml:6:in `block in _app_views_movies_index_html_haml__302545164_48310992'
+  app/views/movies/index.html.haml:4:in `_app_views_movies_index_html_haml__302545164_48310992'
+  app/controllers/movies_controller.rb:36:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (36.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:50:28 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 20.0ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3: 
+    4: = form_tag movies_path, :id=>"ratings_form", :method => :get do
+    5:   Include:
+    6:   - @all_ratings.each do |rating|
+    7:     = rating
+    8:     = check_box_tag "ratings[#{rating}]", rating, ((@filter_ratings.length == 0) || (@filter_ratings.grep(/^#{rating}$/).length > 0))
+    9:   = submit_tag 'Refresh', :id=>"ratings_submit"
+  app/views/movies/index.html.haml:6:in `block in _app_views_movies_index_html_haml__302545164_45306156'
+  app/views/movies/index.html.haml:4:in `_app_views_movies_index_html_haml__302545164_45306156'
+  app/controllers/movies_controller.rb:36:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:50:30 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 12.0ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    3: 
+    4: = form_tag movies_path, :id=>"ratings_form", :method => :get do
+    5:   Include:
+    6:   - @all_ratings.each do |rating|
+    7:     = rating
+    8:     = check_box_tag "ratings[#{rating}]", rating, ((@filter_ratings.length == 0) || (@filter_ratings.grep(/^#{rating}$/).length > 0))
+    9:   = submit_tag 'Refresh', :id=>"ratings_submit"
+  app/views/movies/index.html.haml:6:in `block in _app_views_movies_index_html_haml__302545164_45306156'
+  app/views/movies/index.html.haml:4:in `_app_views_movies_index_html_haml__302545164_45306156'
+  app/controllers/movies_controller.rb:36:in `index'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:53:53 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (22.0ms)
+Completed 500 Internal Server Error in 47.0ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x5b207b0>):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: 
+    28: = will_paginate @movies
+    29: 
+    30: = link_to 'Add new movie', new_movie_path
+    31: 
+  app/views/movies/index.html.haml:28:in `_app_views_movies_index_html_haml__302545164_48257580'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:55:45 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 500 Internal Server Error in 40.0ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x5b1f520>):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: 
+    28: = will_paginate @movies
+    29: 
+    30: = link_to 'Add new movie', new_movie_path
+    31: 
+  app/views/movies/index.html.haml:28:in `_app_views_movies_index_html_haml__302545164_48257580'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (36.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 23:56:11 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (18.0ms)
+Completed 200 OK in 85.0ms (Views: 82.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 23:56:11 +0930
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 23:56:11 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (33ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 23:56:11 +0930
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 23:56:11 +0930
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:00:26 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 32.0ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<Array:0x5501400>):
+    25:         %td= movie.release_date
+    26:         %td= link_to "More about #{movie.title}", movie_path(movie)
+    27: 
+    28: = will_paginate @movies
+    29: 
+    30: = link_to 'Add new movie', new_movie_path
+    31: 
+  app/views/movies/index.html.haml:28:in `_app_views_movies_index_html_haml__302545164_45306768'
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:02:12 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (22.0ms)
+Completed 200 OK in 80.0ms (Views: 32.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:12 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:12 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:12 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:02:12 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods&sort=title" for 127.0.0.1 at 2014-06-21 00:02:23 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}, "sort"=>"title"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods') ORDER BY title
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 24.0ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:02:23 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:23 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:23 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:23 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods&sort=release_date" for 127.0.0.1 at 2014-06-21 00:02:26 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}, "sort"=>"release_date"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods') ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 24.0ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:26 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:26 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:02:26 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:02:26 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started POST "/movies/import" for 127.0.0.1 at 2014-06-21 00:03:33 +0930
+Processing by MoviesController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xxAdKTu9h6lIge5f/4lmm7lwqtvD+IPIU8IgA9qMhhU=", "file"=>#<ActionDispatch::Http::UploadedFile:0x5615658 @original_filename="products.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"products.csv\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:C:/Users/Ken/AppData/Local/Temp/RackMultipart20140621-55548-1mi5ktk>>, "commit"=>"Import CSV"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT11' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 14:33:34 UTC +00:00], ["description", nil], ["p_id", "CT11"], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 14:33:34 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" IS NULL LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 14:33:34 UTC +00:00], ["description", nil], ["p_id", nil], ["rating", nil], ["release_date", 0], ["title", nil], ["updated_at", Fri, 20 Jun 2014 14:33:34 UTC +00:00]]
+  [1m[36m (28.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 114.0ms (ActiveRecord: 43.0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-21 00:03:34 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 4.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:03:34 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 23.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:34 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:34 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:34 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:03:34 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/movies?page=2&ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:03:40 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"page"=>"2", "ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 23.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:03:40 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:40 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:40 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:40 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?page=3&ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:03:42 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"page"=>"3", "ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 24.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:42 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:42 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:42 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:03:42 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/movies?page=4&ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:03:43 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"page"=>"4", "ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 22.0ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:03:43 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:43 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:43 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:03:43 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:05:39 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras')[0m
+  Rendered movies/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 18.0ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:05:40 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:40 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:40 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:40 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BWhiteGoods%5D=WhiteGoods&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:05:45 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"WhiteGoods"=>"WhiteGoods"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 18.0ms (Views: 16.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:05:45 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:45 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:45 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:45 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:05:49 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('WhiteGoods', 'Audio')[0m
+  Rendered movies/index.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 19.0ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:05:49 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:49 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:49 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:49 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BAudio%5D=Audio&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:05:52 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Audio"=>"Audio"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio')
+  Rendered movies/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 17.0ms (Views: 15.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:05:52 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:53 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:53 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:53 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:05:55 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 23.0ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:05:55 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:55 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:55 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:55 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:05:59 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Computers and Tablets')
+  Rendered movies/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 21.0ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:59 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:59 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:05:59 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:05:59 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/movies?commit=Refresh&page=2&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&utf8=%E2%9C%93" for 127.0.0.1 at 2014-06-21 00:06:02 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"commit"=>"Refresh", "page"=>"2", "ratings"=>{"Computers and Tablets"=>"Computers and Tablets"}, "utf8"=>"✓"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 21.0ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:06:02 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:02 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:02 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:02 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BAudio%5D=Audio&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:06:07 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Audio"=>"Audio"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio')
+  Rendered movies/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 18.0ms (Views: 15.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:07 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:06:07 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:07 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:07 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:06:11 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('WhiteGoods', 'Audio')[0m
+  Rendered movies/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 20.0ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:11 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:06:11 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:11 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:11 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&commit=Refresh" for 127.0.0.1 at 2014-06-21 00:06:14 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio')
+  Rendered movies/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 22.0ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:15 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:15 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:15 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:06:15 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2014-06-21 00:06:25 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered movies/show.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 19.0ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:06:25 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:25 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:25 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:25 +0930
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-21 00:06:29 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 4.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-21 00:06:29 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 20.0ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-21 00:06:29 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:29 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:29 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-21 00:06:29 +0930
+Served asset /application.js - 304 Not Modified (0ms)

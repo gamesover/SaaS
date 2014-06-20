@@ -1,7 +1,7 @@
 class CreateMovies < ActiveRecord::Migration
   def up
     create_table :movies, :force => true do |t|
-			t.string :p_id
+			t.string :p_id, :unique => true
       t.string :title
       t.string :rating
       t.text :description

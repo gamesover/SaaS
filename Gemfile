@@ -34,3 +34,4 @@ gem 'haml'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+gem "will_paginate", "~> 3.0.4"

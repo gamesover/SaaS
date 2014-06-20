@@ -1,8 +1,9 @@
 class MoviesController < ApplicationController
-
+  require 'will_paginate/array'
   def show
     id = params[:id] # retrieve movie ID from URI route
-    @movie = Movie.find(id) # look up movie by unique ID
+    @movie = Movie.find(id)# look up movie by unique ID
+		#@movie = @movie.paginate(page: params[:page], per_page: 5) 
     # will render app/views/movies/show.<extension> by default
   end
 
@@ -31,7 +32,11 @@ class MoviesController < ApplicationController
        end
        @movies = Movie.all(:order=>sort)
     end
-
+		@movies = @movies.paginate(page: params[:page], per_page: 5)
+#		respond_to do |format|
+#      format.html  #index.html.erb
+#      format.json { render json: @movies }
+#    end 
     @all_ratings = ['Cameras','WhiteGoods','Audio','Computers and Tablets']
   end
 
@@ -43,6 +48,13 @@ class MoviesController < ApplicationController
     @movie = Movie.create!(params[:movie])
     flash[:notice] = "#{@movie.title} was successfully created."
     redirect_to movies_path
+#		@movie = Movie.create!(params[:movie])
+#    if @movie.save
+#      flash[:notice] = "#{@movie.title} was successfully created."
+#			redirect_to movies_path
+#    else
+#      render :new
+#    end
   end
 
   def edit
@@ -65,7 +77,7 @@ class MoviesController < ApplicationController
 
   def import
     Movie.import(params[:file])
-    redirect_to root_url, notice: "Products imported."
+    redirect_to movies_path, notice: "Products imported."
   end
 
 end
