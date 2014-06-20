@@ -63,4 +63,9 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def import
+    Movie.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
+
 end
