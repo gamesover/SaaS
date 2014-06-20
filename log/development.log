@@ -1,0 +1,1433 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (40.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (10.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (20.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (10.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "G"], ["release_date", Wed, 25 Nov 1992 00:00:00 UTC +00:00], ["title", "Aladdin"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[35m (20.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "R"], ["release_date", Fri, 26 Oct 1984 00:00:00 UTC +00:00], ["title", "The Terminator"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "R"], ["release_date", Fri, 21 Jul 1989 00:00:00 UTC +00:00], ["title", "When Harry Met Sally"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "PG-13"], ["release_date", Wed, 10 Aug 2011 00:00:00 UTC +00:00], ["title", "The Help"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "PG-13"], ["release_date", Fri, 05 Jan 2001 00:00:00 UTC +00:00], ["title", "Chocolat"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "R"], ["release_date", Wed, 25 Apr 2001 00:00:00 UTC +00:00], ["title", "Amelie"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "G"], ["release_date", Sat, 06 Apr 1968 00:00:00 UTC +00:00], ["title", "2001: A Space Odyssey"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00], ["description", nil], ["rating", "PG"], ["release_date", Fri, 05 Nov 2004 00:00:00 UTC +00:00], ["title", "The Incredibles"], ["updated_at", Fri, 20 Jun 2014 07:35:56 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 07:35:57 UTC +00:00], ["description", nil], ["rating", "PG"], ["release_date", Fri, 12 Jun 1981 00:00:00 UTC +00:00], ["title", "Raiders of the Lost Ark"], ["updated_at", Fri, 20 Jun 2014 07:35:57 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 07:35:57 UTC +00:00], ["description", nil], ["rating", "G"], ["release_date", Wed, 21 Jun 2000 00:00:00 UTC +00:00], ["title", "Chicken Run"], ["updated_at", Fri, 20 Jun 2014 07:35:57 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 17:07:11 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+  Rendered movies/index.html.haml within layouts/application (50.0ms)
+Compiled application.css  (0ms)  (pid 48768)
+Compiled jquery.js  (0ms)  (pid 48768)
+Compiled jquery_ujs.js  (0ms)  (pid 48768)
+Compiled application.js  (120ms)  (pid 48768)
+Completed 200 OK in 410.0ms (Views: 340.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:07:12 +0930
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:07:12 +0930
+Served asset /jquery.js - 200 OK (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:07:12 +0930
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:07:12 +0930
+Served asset /application.js - 200 OK (30ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 17:26:07 +0930
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" 
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Compiled application.css  (0ms)  (pid 48768)
+Completed 200 OK in 70.0ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:08 +0930
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:08 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:08 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:08 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?&sort=title" for 127.0.0.1 at 2014-06-20 17:26:11 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"title"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" ORDER BY title[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:11 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:11 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:11 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:11 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?&sort=release_date" for 127.0.0.1 at 2014-06-20 17:26:13 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"sort"=>"release_date"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:13 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:13 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:13 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:13 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&ratings%5BR%5D=R&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:26:16 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:16 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:16 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:16 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:16 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:26:18 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13')
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 10.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:18 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:18 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:18 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:18 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:26:21 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 10.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:21 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:21 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:21 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:21 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2014-06-20 17:26:23 +0930
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (20.0ms)
+Completed 200 OK in 30.0ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:23 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:23 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:23 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:23 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&ratings%5BR%5D=R&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:26:36 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:26:36 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:36 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:36 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:26:36 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (70.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (10.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 08:07:03 UTC +00:00]]
+  [1m[35m (20.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:07:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 08:07:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:07:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 08:07:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&ratings%5BR%5D=R&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:37:32 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (20.0ms)
+Completed 200 OK in 220.0ms (Views: 110.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:37:33 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:37:33 +0930
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:37:34 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:37:34 +0930
+Served asset /application.js - 304 Not Modified (39ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2014-06-20 17:37:50 +0930
+Served asset /rails.png - 200 OK (170ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 17:38:13 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&ratings%5BR%5D=R
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" 
+Completed 302 Found in 10.0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&ratings%5BR%5D=R" for 127.0.0.1 at 2014-06-20 17:38:13 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}}
+  [1m[36mMovie Load (10.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 10.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:38:13 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:38:13 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:38:13 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:38:13 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=G&ratings%5BPG%5D=PG&ratings%5BPG-13%5D=PG-13&ratings%5BR%5D=R" for 127.0.0.1 at 2014-06-20 17:41:37 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"G", "PG"=>"PG", "PG-13"=>"PG-13", "R"=>"R"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 70.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:41:38 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:41:38 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:41:38 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:41:38 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:41:45 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:41:45 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:41:45 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:41:45 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:41:45 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:42:31 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'Computers and Tablets')
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:42:31 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:31 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:31 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:31 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:42:33 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 10.0ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:42:33 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:33 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:33 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:33 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:42:37 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 20.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:42:37 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:37 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:37 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:42:37 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:44:03 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 30.0ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:44:03 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:44:03 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:44:03 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:44:03 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:44:19 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')
+  Rendered movies/index.html.haml within layouts/application (20.0ms)
+Completed 200 OK in 30.0ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:44:19 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:44:19 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:44:19 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:44:19 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (70.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (10.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (20.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (20.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (30.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (10.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 08:20:30 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 17:51:19 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (50.0ms)
+Completed 200 OK in 220.0ms (Views: 120.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 17:51:20 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 17:51:20 +0930
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 17:51:20 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 17:51:20 +0930
+Served asset /application.js - 304 Not Modified (39ms)
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (40.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 08:26:04 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (10.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (20.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (10.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (40.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (10.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", nil], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", nil], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (20.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", nil], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+WARNING: Can't mass-assign protected attributes: price
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+WARNING: Can't mass-assign protected attributes: price
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", nil], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 09:26:49 UTC +00:00]]
+  [1m[35m (30.0ms)[0m  commit transaction
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 19:01:46 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (24.0ms)
+Completed 200 OK in 227.0ms (Views: 121.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:01:47 +0930
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:01:47 +0930
+Served asset /jquery.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:01:47 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:01:47 +0930
+Served asset /application.js - 304 Not Modified (39ms)
+Connecting to database specified by database.yml
+  [1m[36m (3.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (20.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", 2999], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", 418], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", 670], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", 99], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", 499], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", 299], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", 329], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 1899], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 1399], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (5.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 499], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 2999], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 699], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 498], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 399], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 129], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 09:42:47 UTC +00:00]]
+  [1m[35m (6.0ms)[0m  commit transaction
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BCameras%5D=Cameras&ratings%5BWhiteGoods%5D=WhiteGoods&ratings%5BAudio%5D=Audio&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&commit=Refresh" for 127.0.0.1 at 2014-06-20 19:13:12 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"Cameras"=>"Cameras", "WhiteGoods"=>"WhiteGoods", "Audio"=>"Audio", "Computers and Tablets"=>"Computers and Tablets"}, "commit"=>"Refresh"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Cameras', 'WhiteGoods', 'Audio', 'Computers and Tablets')[0m
+  Rendered movies/index.html.haml within layouts/application (30.0ms)
+Completed 200 OK in 236.0ms (Views: 124.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:13:13 +0930
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:13:13 +0930
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:13:13 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:13:13 +0930
+Served asset /application.js - 304 Not Modified (37ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods&sort=release_date" for 127.0.0.1 at 2014-06-20 19:13:28 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}, "sort"=>"release_date"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods') ORDER BY release_date
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 29.0ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:13:28 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:13:28 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:13:28 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:13:28 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (6.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (6.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (42.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (307.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", 2999], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Cameras"], ["release_date", 418], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (23.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", 670], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "WhiteGoods"], ["release_date", 99], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", 499], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", 299], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (14.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Audio"], ["release_date", 329], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 1899], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 1399], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 499], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 2999], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (8.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 699], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 498], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 399], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00], ["description", nil], ["rating", "Computers and Tablets"], ["release_date", 129], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 09:45:33 UTC +00:00]]
+  [1m[35m (9.0ms)[0m  commit transaction
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods&sort=release_date" for 127.0.0.1 at 2014-06-20 19:16:04 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}, "sort"=>"release_date"}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods') ORDER BY release_date[0m
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 160.0ms (Views: 80.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:16:05 +0930
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:05 +0930
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:05 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:05 +0930
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/movies/5" for 127.0.0.1 at 2014-06-20 19:16:24 +0930
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered movies/show.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 18.0ms (Views: 15.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:16:24 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:24 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:24 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:24 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2014-06-20 19:16:33 +0930
+Processing by MoviesController#index as HTML
+Redirected to http://localhost:3000/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" [0m
+Completed 302 Found in 4.0ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 19:16:33 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 21.0ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:16:33 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:33 +0930
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:33 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:16:33 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 19:17:37 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (0.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 28.0ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:17:38 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:17:38 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:17:38 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:17:38 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 19:17:55 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 29.0ms (Views: 26.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 19:17:55 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 19:17:55 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 19:17:55 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 19:17:55 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (6.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (1.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20111119180638'
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateMovies (20111119180638)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "p_id" varchar(255), "title" varchar(255), "rating" varchar(255), "description" text, "release_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111119180638')[0m
+  [1m[35m (30.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (7.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C1' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "C1"], ["rating", "Cameras"], ["release_date", 1199], ["title", "Sony NEX6"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "C2"], ["rating", "Cameras"], ["release_date", 2999], ["title", "Canon 7D"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'C3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "C3"], ["rating", "Cameras"], ["release_date", 418], ["title", "Canon EOS 1100D"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "W1"], ["rating", "WhiteGoods"], ["release_date", 670], ["title", "LG Fridge"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (42.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'W2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "W2"], ["rating", "WhiteGoods"], ["release_date", 99], ["title", "Breville Toaster"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "A1"], ["rating", "Audio"], ["release_date", 499], ["title", "Sony Speakers"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "A2"], ["rating", "Audio"], ["release_date", 299], ["title", "Sennheiser Headphones"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'A3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "A3"], ["rating", "Audio"], ["release_date", 329], ["title", "Bose QC15 Headphones"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT1' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT1"], ["rating", "Computers and Tablets"], ["release_date", 599], ["title", "Apple iPad Air"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT2' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT2"], ["rating", "Computers and Tablets"], ["release_date", 1899], ["title", "Apple Macbook Pro"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT3' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT3"], ["rating", "Computers and Tablets"], ["release_date", 1399], ["title", "Toshiba Laptop"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT4' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT4"], ["rating", "Computers and Tablets"], ["release_date", 499], ["title", "Apple iPad Mini"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT5' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT5"], ["rating", "Computers and Tablets"], ["release_date", 2999], ["title", "Apple Mac Pro"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT6' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT6"], ["rating", "Computers and Tablets"], ["release_date", 699], ["title", "Samsung Galaxy Tab"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT7' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT7"], ["rating", "Computers and Tablets"], ["release_date", 498], ["title", "Asus Sub-notebook"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT8' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT8"], ["rating", "Computers and Tablets"], ["release_date", 399], ["title", "Brother Laser Printer"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (18.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovie Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "movies" WHERE "movies"."p_id" = 'CT9' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "description", "p_id", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00], ["description", nil], ["p_id", "CT9"], ["rating", "Computers and Tablets"], ["release_date", 129], ["title", "Seagate External HDD 1TB"], ["updated_at", Fri, 20 Jun 2014 10:29:22 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 19:59:39 +0930
+Connecting to database specified by database.yml
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 175.0ms
+
+ActionView::Template::Error (Inconsistent indentation: "\t  " used for indentation, but the rest of the document was indented using 2 spaces.):
+    11: %table#movies
+    12:   %thead
+    13:     %tr
+    14: 	  %th Product ID	
+    15:       %th{ :class => [("hilite" unless @sort != "title")] }= link_to "Production Name", movies_path(:sort=>"title", :ratings=>@filter_ratings_hash), :id=>"title_header"
+    16:       %th Category
+    17:       %th{ :class => [("hilite" unless @sort != "release_date")] }= link_to "Price", movies_path(:sort=>"release_date", :ratings=>@filter_ratings_hash), :id=>"release_date_header"
+  app/views/movies/index.html.haml:14
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (41.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 20:05:39 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 12.0ms
+
+ActionView::Template::Error (Inconsistent indentation: "\t  " used for indentation, but the rest of the document was indented using 2 spaces.):
+    11: %table#movies
+    12:   %thead
+    13:     %tr
+    14: 	  %th Product ID	
+    15:       %th{ :class => [("hilite" unless @sort != "title")] }= link_to "Production Name", movies_path(:sort=>"title", :ratings=>@filter_ratings_hash), :id=>"title_header"
+    16:       %th Category
+    17:       %th{ :class => [("hilite" unless @sort != "release_date")] }= link_to "Price", movies_path(:sort=>"release_date", :ratings=>@filter_ratings_hash), :id=>"release_date_header"
+  app/views/movies/index.html.haml:14
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 20:06:09 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 10.0ms
+
+ActionView::Template::Error (Inconsistent indentation: "\t  " used for indentation, but the rest of the document was indented using 2 spaces.):
+    11: %table#movies
+    12:   %thead
+    13:     %tr
+    14: 	  %th Product ID
+    15:       %th{ :class => [("hilite" unless @sort != "title")] }= link_to "Production Name", movies_path(:sort=>"title", :ratings=>@filter_ratings_hash), :id=>"title_header"
+    16:       %th Category
+    17:       %th{ :class => [("hilite" unless @sort != "release_date")] }= link_to "Price", movies_path(:sort=>"release_date", :ratings=>@filter_ratings_hash), :id=>"release_date_header"
+  app/views/movies/index.html.haml:14
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (36.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 20:06:51 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[35mMovie Load (0.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')
+  Rendered movies/index.html.haml within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 10.0ms
+
+ActionView::Template::Error (Inconsistent indentation: "\t    " used for indentation, but the rest of the document was indented using 2 spaces.):
+    19:   %tbody
+    20:     - @movies.each do |movie|
+    21:       %tr
+    22: 	    %td= movie.p_id
+    23:         %td= movie.title 
+    24:         %td= movie.rating
+    25:         %td= movie.release_date
+  app/views/movies/index.html.haml:22
+
+
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.18/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods" for 127.0.0.1 at 2014-06-20 20:07:11 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods')[0m
+  Rendered movies/index.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 83.0ms (Views: 80.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 20:07:11 +0930
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:11 +0930
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:11 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:11 +0930
+Served asset /application.js - 304 Not Modified (38ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods&sort=title" for 127.0.0.1 at 2014-06-20 20:07:46 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}, "sort"=>"title"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods') ORDER BY title
+  Rendered movies/index.html.haml within layouts/application (11.0ms)
+Completed 200 OK in 24.0ms (Views: 19.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 20:07:46 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:46 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:46 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:46 +0930
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies?ratings%5BAudio%5D=Audio&ratings%5BCameras%5D=Cameras&ratings%5BComputers+and+Tablets%5D=Computers+and+Tablets&ratings%5BWhiteGoods%5D=WhiteGoods&sort=title" for 127.0.0.1 at 2014-06-20 20:07:48 +0930
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"Audio"=>"Audio", "Cameras"=>"Cameras", "Computers and Tablets"=>"Computers and Tablets", "WhiteGoods"=>"WhiteGoods"}, "sort"=>"title"}
+  [1m[36mMovie Load (1.0ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('Audio', 'Cameras', 'Computers and Tablets', 'WhiteGoods') ORDER BY title[0m
+  Rendered movies/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 52.0ms (Views: 48.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-20 20:07:48 +0930
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:48 +0930
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:48 +0930
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-20 20:07:48 +0930
+Served asset /application.js - 304 Not Modified (0ms)
